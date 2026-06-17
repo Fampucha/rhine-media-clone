@@ -9,11 +9,11 @@ function Hero() {
     const handleScroll = () => {
       const y = window.scrollY;
 
-      if (orbA & y != 1000) {
+      if (orbA && y < heroHeight) {
         orbA.style.transform = `translateY(${y * 0.12}px)`;
       }
 
-      if (orbB & y != 1000) {
+      if (orbB && y < heroHeight) {
         orbB.style.transform = `translateY(${y * 0.08}px)`;
       }
     };
