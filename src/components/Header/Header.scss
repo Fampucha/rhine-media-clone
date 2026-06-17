@@ -1,0 +1,127 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.navbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 900;
+    padding: 22px 0;
+    transition: background $tm, padding $tm, border-color $tm, backdrop-filter $tm;
+    border-bottom: 1px solid transparent;
+
+    &.scrolled {
+        background: rgba(5, 7, 14, 0.88);
+        padding: 14px 0;
+        backdrop-filter: blur(22px);
+        -webkit-backdrop-filter: blur(22px);
+        border-bottom-color: $b0;
+    }
+
+    .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .logo {
+            @include logo;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+
+            @media (max-width: $desktop) {
+                gap: 20px;
+            }
+            @media (max-width: $laptop) {
+                display: none;
+            }
+
+            a {
+                color: $t2;
+                font-size: 0.85rem;
+                font-weight: 500;
+                letter-spacing: 0.01em;
+                transition: color $tf;
+
+                &:hover { 
+                    color: $t1; 
+                }
+            }
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            .btn:first-child {
+                @media (max-width: $tablet) {
+                    display: none; 
+                }
+            }
+            
+
+            .ham {
+                display: none;
+                flex-direction: column;
+                gap: 5px;
+                padding: 6px;
+
+                @media (max-width: $laptop) {
+                    display: flex;
+                }
+
+                span {
+                    display: block;
+                    height: 2px;
+                    width: 22px;
+                    background: $t1;
+                    border-radius: 2px;
+                    transition: $tf;
+                }
+            }
+        }
+    }
+}
+
+.mob-menu {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: $bg-0;
+    z-index: 100;
+    flex-direction: column;
+    gap: 26px;
+
+    &.open { 
+        @include flex-center;
+    }
+
+    a {
+        color: $t1;
+        font-size: 1.6rem;
+        font-family: $f-head;
+        font-weight: 700;
+        transition: color $tf;
+
+        &:hover { 
+            color: $gold; 
+        }
+    }
+
+    .mob-close {
+        position: absolute;
+        top: 100px; 
+        right: 33px;
+        font-size: 1.4rem;
+        color: $t2;
+        cursor: pointer;
+        transition: color $tf;
+
+        &:hover { 
+            color: $t1; 
+        }
+    }
+}

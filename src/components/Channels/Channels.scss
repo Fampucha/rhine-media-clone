@@ -1,0 +1,53 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.traffic { 
+    background: $bg-1; 
+
+
+    .src-grid {
+        @include responsive-grid(
+            $default: repeat(4, 1fr),
+            $at-tablet: repeat(2, 1fr),
+            $gap: 16px
+        );
+        margin-top: 52px;
+        
+        .src-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            @include card-base($padding: 26px 18px, $radius: $r-m, $transition: $tf);
+            gap: 11px;
+            text-align: center;
+
+            &:hover {
+                @include lift-hover(
+                    $border-color: $blue-lt,
+                    $shadow: 0 14px 36px rgba(62,114,236,0.14),
+                    $background: $bg-card-h
+                );
+            }
+        }
+
+        .src-ico {
+            @include square-center(52px, 13px);
+            background: $blue-dim;
+            font-size: 1.35rem;
+            flex-shrink: 0;
+        }
+
+        .src-name {
+            font-family: $f-head;
+            font-size: 0.88rem;
+            color: $t1;
+            font-weight: 700;
+            line-height: 23px;
+        }
+
+        .src-sub {
+            font-size: 0.72rem;
+            color: $t3;
+        }
+    }
+}

@@ -1,0 +1,104 @@
+@use 'variables' as *;
+
+@mixin logo {
+    display: flex;
+    align-items: center;
+    font-family: $f-head;
+    font-weight: 800;
+    font-size: 1.15rem;
+    letter-spacing: -0.02em;
+    gap: 10px;
+    flex-shrink: 0;
+
+    .logo-mark {
+        width: 36px;
+        height: 36px;
+        background: $g-gold;
+        border-radius: 9px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 13px;
+        font-weight: 900;
+        color: #120d00;
+        letter-spacing: -0.02em;
+    }
+
+    .logo-name span { 
+        color: $gold; 
+    }
+}
+
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin square-center($size, $radius: null) {
+    width: $size;
+    height: $size;
+    @include flex-center;
+
+    @if $radius != null {
+        border-radius: $radius;
+    }
+}
+
+@mixin gradient-text($gradient: $g-gold) {
+    background: $gradient;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@mixin card-base($padding: 30px 24px, $radius: $r-l, $background: $bg-card, $border-color: $b0, $transition: $tm) {
+    background: $background;
+    padding: $padding;
+    border: 1px solid $border-color;
+    border-radius: $radius;
+    transition: $transition;
+}
+
+@mixin lift-hover($translate: -5px, $border-color: $border-g, $shadow: 0 16px 40px rgba(0,0,0,0.22), $background: null) {
+    border-color: $border-color;
+    transform: translateY($translate);
+    box-shadow: $shadow;
+
+    @if $background != null {
+        background: $background;
+    }
+}
+
+@mixin responsive-grid($default, $at-desktop: null, $at-laptop: null, $at-tablet: null, $at-mobile: null, $gap: null) {
+    display: grid;
+    grid-template-columns: $default;
+
+    @if $gap != null {
+        gap: $gap;
+    }
+
+    @if $at-desktop != null {
+        @media (max-width: $desktop) {
+            grid-template-columns: $at-desktop;
+        }
+    }
+
+    @if $at-laptop != null {
+        @media (max-width: $laptop) {
+            grid-template-columns: $at-laptop;
+        }
+    }
+
+    @if $at-tablet != null {
+        @media (max-width: $tablet) {
+            grid-template-columns: $at-tablet;
+        }
+    }
+
+    @if $at-mobile != null {
+        @media (max-width: $mobile) {
+            grid-template-columns: $at-mobile;
+        }
+    }
+}

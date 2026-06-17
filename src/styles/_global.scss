@@ -1,0 +1,228 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+*,
+*::before, 
+*::after {
+  margin: 0; 
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: $f-body;
+  background: $bg-0;
+  color: $t1;
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+ul, 
+ol { 
+  list-style: none; 
+}
+
+/* typography */
+h1, h2, h3, h4, h5 {
+  font-family: $f-head;
+  color: $t1;
+  font-weight: 700;
+  line-height: 1.12;
+}
+
+.text-gold {
+  @include gradient-text;
+}
+
+.text-blue {
+  @include gradient-text($g-blue);
+}
+
+.eyebrow {
+  display: inline-flex;
+  color: $gold;
+  text-transform: uppercase;
+  align-items: center;
+  font-size: 0.72rem;
+  gap: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  margin-bottom: 18px;
+
+  &::before {
+    content: '';
+    width: 18px;
+    height: 2px;
+    display: block;
+    background: $g-gold;
+    border-radius: 2px;
+    // flex-shrink: 0;
+  }
+}
+
+.sec-title {
+  font-size: clamp(1.85rem, 3.5vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  margin-bottom: 18px;
+}
+
+.sec-sub {
+  color: $t2;
+  font-size: 1rem;
+  line-height: 1.75;
+  max-width: 520px;
+}
+
+/* layout */
+.container {
+  max-width: $c-max;
+  margin-inline: auto;
+  padding: 0 $c-px;
+}
+
+.section {
+  padding: $sec-py 0;
+}
+
+.text-center,
+.sec-center {
+  text-align: center;
+}
+
+.sec-center .sec-sub { 
+  margin: 0 auto; 
+}
+
+
+/* buttons */
+.btn {
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-family: $f-head;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: $tf;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary {
+  background: $g-gold;
+  color: #150e00;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 38px $gold-glow;
+  }
+}
+
+.btn-ghost {
+  color: $t1;
+  background: transparent;
+  border: 1px solid $b1;
+
+  &:hover {
+  background: rgba(255,255,255,0.04);
+  color: $gold-lt;
+  border-color: $border-g;
+  transform: translateY(-2px);
+}
+}
+
+.btn-gold-outline {
+  background: transparent;
+  color: $gold;
+  border: 1.5px solid $border-g;
+
+  &:hover {
+    background: $gold-dim;
+    transform: translateY(-2px);
+  }
+}
+
+/* IntersectionObserver */
+[data-a] {
+  opacity: 0;
+  transition:
+    opacity 0.75s $ease,
+    transform 0.75s $ease;
+}
+
+[data-a='up'] {
+  transform: translateY(28px);
+}
+
+[data-a='left'] {
+  transform: translateX(-28px);
+}
+
+[data-a='right'] {
+  transform: translateX(28px);
+}
+
+[data-a='scale'] {
+  transform: scale(0.92);
+}
+
+[data-a].vis {
+  opacity: 1;
+  transform: none;
+}
+
+[data-d='1'] {
+  transition-delay: 0.08s;
+}
+
+[data-d='2'] {
+  transition-delay: 0.16s;
+}
+
+[data-d='3'] {
+  transition-delay: 0.24s;
+}
+
+[data-d='4'] {
+  transition-delay: 0.32s;
+}
+
+[data-d='5'] {
+  transition-delay: 0.4s;
+}

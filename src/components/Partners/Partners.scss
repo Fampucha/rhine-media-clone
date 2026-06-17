@@ -1,0 +1,48 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.partners { 
+    background: $bg-0; 
+    padding: 88px 0; 
+    overflow: hidden; 
+
+    .container { 
+        margin-bottom: 48px; 
+    }
+    
+    .marquee-wrap {
+        position: relative;
+        overflow: hidden;
+        mask-image: linear-gradient(90deg, transparent 0%, black 12%, black 88%, transparent 100%);
+        -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 12%, black 88%, transparent 100%);
+    
+        .p-chip {
+            display: flex;
+            align-items: center;
+            padding: 11px 20px;
+            @include card-base($padding: 11px 20px, $radius: 50px, $transition: $tf);
+            gap: 10px;
+            white-space: nowrap;
+            flex-shrink: 0;
+            margin-right: 20px;
+            cursor: default;
+
+            &:hover {
+                background: $bg-card-h;
+                border-color: $border-g;
+            }
+
+            &-ico {
+                @include square-center(22px, 5px);
+                background: $gold-dim;
+                font-size: 0.75rem;
+            }
+
+            &-name {
+                color: $t2;
+                font-size: 0.845rem;
+                font-weight: 600;
+            }
+        }
+    }
+}

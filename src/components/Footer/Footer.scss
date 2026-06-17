@@ -1,0 +1,122 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.footer {
+    background: $bg-0;
+    padding: 72px 0 34px;
+    border-top: 1px solid $b0;
+
+    &-cols {
+        @include responsive-grid(
+            $default: 1.9fr 1fr 1fr 1fr,
+            $at-desktop: 1fr 1fr,
+            $at-tablet: 1fr,
+            $gap: 48px
+        );
+
+        margin-bottom: 60px;
+
+        @media (max-width: $desktop) {
+            gap: 36px; 
+        }
+
+        @media (max-width: $tablet) {
+            gap: 28px;
+        }
+
+        .logo {
+            @include logo;
+        }
+
+
+        .fb-desc {
+            font-size: 0.875rem;
+            color: $t2;
+            line-height: 1.72;
+            margin-top: 18px;
+            max-width: 260px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 9px;
+            margin-top: 26px;
+
+            .soc-btn {
+                @include square-center(36px, 8px);
+                background: $bg-card;
+                border: 1px solid $b0;
+                font-size: 0.85rem;
+                color: $t2;
+                transition: $tf;
+
+                &:hover {
+                    color: $gold;
+                    border-color: $border-g;
+                    background: $gold-dim;
+                }
+            }
+        }
+
+        .fc-head {
+            font-family: $f-head;
+            color: $t1;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .fc-links {
+            display: flex;
+            flex-direction: column;
+            gap: 11px;
+
+            a {
+                color: $t2;
+                font-size: 0.865rem;
+                transition: color $tf;
+
+                &:hover { 
+                    color: $gold-lt; 
+                }
+            }
+        }
+    }
+
+    .footer-bottom {
+        border-top: 1px solid $b0;
+        padding-top: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+
+        @media (max-width: $tablet) {
+            flex-direction: column; 
+            align-items: flex-start;
+        }
+
+        .copy { 
+            font-size: 0.8rem; 
+            color: $t3; 
+        }
+
+        .f-legal { 
+            display: flex; 
+            gap: 22px; 
+        
+            a {
+                font-size: 0.8rem;
+                color: $t3;
+                transition: color $tf;
+
+                &:hover { 
+                    color: $t2; 
+                }
+            }
+        }
+    }
+}
