@@ -52,9 +52,9 @@ function WhyChooseUs() {
       <div className="container">
         <div className="feat-layout">
           <div className="feat-content">
-            <div className="eyebrow" data-a="left">
+            <p className="eyebrow" data-a="left">
               Why Choose Rhine Media
-            </div>
+            </p>
 
             <h2 className="sec-title" data-a="left" data-d="1">
               Precision. Scale.

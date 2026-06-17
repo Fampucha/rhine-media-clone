@@ -9,11 +9,11 @@ function Hero() {
     const handleScroll = () => {
       const y = window.scrollY;
 
-      if (orbA) {
+      if (orbA & y != 1000) {
         orbA.style.transform = `translateY(${y * 0.12}px)`;
       }
 
-      if (orbB) {
+      if (orbB & y != 1000) {
         orbB.style.transform = `translateY(${y * 0.08}px)`;
       }
     };
@@ -61,7 +61,7 @@ function Hero() {
           <h1 className="hero-h1" data-a="up" data-d="1">
             <div>Performance Media</div>
             <span>
-              Buying Team&nbsp;|&nbsp;<span className="hl">Rhine Media</span>
+              Buying Team <span className="separator">|&nbsp;</span><span className="hl">Rhine Media</span>
             </span>
           </h1>
 

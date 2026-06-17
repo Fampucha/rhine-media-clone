@@ -6,7 +6,7 @@ The goal of the project was to recreate the structure, visual style, spacing, ty
 
 ## Live Demo
 
-<!-- Add your deployed project link here -->
+The project is available here: [Rhine Media Clone](https://fampucha.github.io/rhine-media-clone/)
 
 ## Tech Stack
 

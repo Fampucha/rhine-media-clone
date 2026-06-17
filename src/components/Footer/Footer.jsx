@@ -48,10 +48,10 @@ function Footer() {
         <div className="footer-cols">
           <div>
             <a href="/" className="logo" aria-label="Rhine Media home">
-              <div className="logo-mark">RM</div>
-              <div className="logo-name">
+              <p className="logo-mark">RM</p>
+              <p className="logo-name">
                 Rhine <span>Media</span>
-              </div>
+              </p>
             </a>
 
             <p className="fb-desc">

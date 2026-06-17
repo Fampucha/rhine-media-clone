@@ -5,7 +5,7 @@ function CTA() {
     <section className="cta-sec" id="contacts">
       <div className="container">
         <div className="cta-box" data-a="scale">
-          <div className="eyebrow cta-eyebrow">Let's Scale Together</div>
+          <p className="eyebrow cta-eyebrow">Let's Scale Together</p>
 
           <h2>
             Ready to <span className="text-gold">Maximize</span> Your ROI?

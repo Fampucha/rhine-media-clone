@@ -64,7 +64,7 @@ function Verticals() {
     <section className="section verticals" id="verticals">
       <div className="container">
         <div className="sec-center" data-a="up">
-          <div className="eyebrow">Our Verticals</div>
+          <p className="eyebrow">Our Verticals</p>
 
           <h2 className="sec-title">
             Niches We <span className="text-gold">Dominate</span>

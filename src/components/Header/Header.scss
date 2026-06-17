@@ -61,6 +61,11 @@
                     display: none; 
                 }
             }
+            .btn-primary {
+                @media (max-width: $mobile) {
+                    display: none; 
+                }
+            }
             
 
             .ham {
@@ -95,8 +100,14 @@
     flex-direction: column;
     gap: 26px;
 
+    
+
     &.open { 
         @include flex-center;
+
+        @media (min-width: $laptop) {
+            display: none;
+        }
     }
 
     a {

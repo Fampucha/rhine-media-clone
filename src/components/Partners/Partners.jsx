@@ -59,7 +59,7 @@ function Partners() {
     <section className="partners" id="partners">
       <div className="container">
         <div className="sec-center" data-a="up">
-          <div className="eyebrow">Trusted Partners & Networks</div>
+          <p className="eyebrow">Trusted Partners & Networks</p>
           <h2 className="sec-title">
             Working with the <span className="text-gold">Best in Class</span>
           </h2>

@@ -56,7 +56,7 @@ function Channels() {
     <section className="section traffic" id="traffic">
       <div className="container">
         <div className="sec-center" data-a="up">
-          <div className="eyebrow">Traffic Sources We Master</div>
+          <p className="eyebrow">Traffic Sources We Master</p>
           <h2 className="sec-title">
             Every Major <span className="text-blue">Channel</span>
           </h2>
@@ -70,7 +70,7 @@ function Channels() {
             <article className="src-card" data-a="scale" data-d={channel.delay} key={channel.title}>
               <div className="src-ico">{channel.icon}</div>
               <h3 className="src-name">{channel.title}</h3>
-              <div className="src-sub">{channel.text}</div>
+              <p className="src-sub">{channel.text}</p>
             </article>
           ))}
         </div>

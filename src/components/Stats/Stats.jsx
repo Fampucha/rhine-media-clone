@@ -34,9 +34,9 @@ function Stats() {
         <div className="stats-row">
           {stats.map((item) => (
             <div className="stat-cell" data-a="up" data-d={item.delay} key={item.label}>
-              <div className="stat-num">{item.number}</div>
-              <div className="stat-lbl">{item.label}</div>
-              <div className="stat-sub">{item.text}</div>
+              <h3 className="stat-num">{item.number}</h3>
+              <p className="stat-lbl">{item.label}</p>
+              <p className="stat-sub">{item.text}</p>
             </div>
           ))}
         </div>

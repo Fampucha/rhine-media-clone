@@ -25,6 +25,7 @@
         border-radius: 50%;
         filter: blur(90px);
         pointer-events: none;
+        will-change: transform;
 
         &-a {
             width: 680px; 
@@ -120,6 +121,13 @@
             letter-spacing: -0.032em;
             line-height: 1.08;
             margin-bottom: 26px;
+
+            .separator {
+                @media (max-width: 444px) {
+                    display: none;
+                }
+
+            }
 
             .hl {
                 @include gradient-text(linear-gradient(120deg, #C9973B 0%, #ECC86A 45%, #C9973B 100%));
