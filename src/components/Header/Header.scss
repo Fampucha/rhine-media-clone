@@ -9,7 +9,7 @@
     transition: background $tm, padding $tm, border-color $tm, backdrop-filter $tm;
     border-bottom: 1px solid transparent;
 
-    &.scrolled {
+    &_scrolled {
         background: rgba(5, 7, 14, 0.88);
         padding: 14px 0;
         backdrop-filter: blur(22px);
@@ -17,81 +17,82 @@
         border-bottom-color: $b0;
     }
 
-    .nav-inner {
+    &__inner {
         display: flex;
         align-items: center;
         justify-content: space-between;
+    }
 
-        .logo {
-            @include logo;
+    &__logo {
+        @include logo;
+    }
+
+    &__links {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+
+        @media (max-width: $desktop) {
+            gap: 20px;
+        }
+        @media (max-width: $laptop) {
+            display: none;
         }
 
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 30px;
+        a {
+            color: $t2;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+            transition: color $tf;
 
-            @media (max-width: $desktop) {
-                gap: 20px;
-            }
-            @media (max-width: $laptop) {
-                display: none;
-            }
-
-            a {
-                color: $t2;
-                font-size: 0.85rem;
-                font-weight: 500;
-                letter-spacing: 0.01em;
-                transition: color $tf;
-
-                &:hover { 
-                    color: $t1; 
-                }
-            }
-        }
-
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-
-            .btn:first-child {
-                @media (max-width: $tablet) {
-                    display: none; 
-                }
-            }
-            .btn-primary {
-                @media (max-width: $mobile) {
-                    display: none; 
-                }
-            }
-            
-
-            .ham {
-                display: none;
-                flex-direction: column;
-                gap: 5px;
-                padding: 6px;
-
-                @media (max-width: $laptop) {
-                    display: flex;
-                }
-
-                span {
-                    display: block;
-                    height: 2px;
-                    width: 22px;
-                    background: $t1;
-                    border-radius: 2px;
-                    transition: $tf;
-                }
+            &:hover { 
+                color: $t1; 
             }
         }
     }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .btn:first-child {
+            @media (max-width: $tablet) {
+                display: none; 
+            }
+        }
+        .btn-primary {
+            @media (max-width: $mobile) {
+                display: none; 
+            }
+        }
+    }
+
+    &__toggle {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        padding: 6px;
+
+        @media (max-width: $laptop) {
+            display: flex;
+        }
+
+        &-line {
+        display: block;
+        height: 2px;
+        width: 22px;
+        background: $t1;
+        border-radius: 2px;
+        transition: $tf;
+    }
+    }
+
+    
 }
 
-.mob-menu {
+.mobile-menu {
     display: none;
     position: fixed;
     inset: 0;
@@ -100,9 +101,7 @@
     flex-direction: column;
     gap: 26px;
 
-    
-
-    &.open { 
+    &_open { 
         @include flex-center;
 
         @media (min-width: $laptop) {
@@ -110,7 +109,7 @@
         }
     }
 
-    a {
+    &__link {
         color: $t1;
         font-size: 1.6rem;
         font-family: $f-head;
@@ -122,7 +121,7 @@
         }
     }
 
-    .mob-close {
+    &__close {
         position: absolute;
         top: 100px; 
         right: 33px;

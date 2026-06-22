@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import * as FastMarquee from 'react-fast-marquee';
 import './Partners.scss';
 
@@ -55,9 +56,27 @@ const partners = [
 ];
 
 function Partners() {
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(() =>
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  );
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    const handleMotionPreferenceChange = (event) => {
+      setPrefersReducedMotion(event.matches);
+    };
+
+    mediaQuery.addEventListener('change', handleMotionPreferenceChange);
+
+    return () => {
+      mediaQuery.removeEventListener('change', handleMotionPreferenceChange);
+    };
+  }, []);
+
   return (
     <section className="partners" id="partners">
-      <div className="container">
+      <div className="container partners__container">
         <div className="sec-center" data-a="up">
           <p className="eyebrow">Trusted Partners & Networks</p>
           <h2 className="sec-title">
@@ -69,17 +88,18 @@ function Partners() {
         </div>
       </div>
 
-      <div className="marquee-wrap">
+      <div className="partners__marquee">
         <Marquee
           speed={40}
+          play={!prefersReducedMotion}
           pauseOnHover={true}
           gradient={false}
           autoFill={true}
         >
           {partners.map((partner) => (
-            <div className="p-chip" key={partner.name}>
-              <div className="p-chip-ico">{partner.icon}</div>
-              <span className="p-chip-name">{partner.name}</span>
+            <div className="partners__chip" key={partner.name}>
+              <div className="partners__chip-icon">{partner.icon}</div>
+              <span className="partners__chip-name">{partner.name}</span>
             </div>
           ))}
         </Marquee>

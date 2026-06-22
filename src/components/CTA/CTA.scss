@@ -1,11 +1,11 @@
 @use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
 
-.cta-sec { 
+.cta { 
     background: $bg-0; 
     padding: 100px 0; 
 
-    .cta-box {
+    &__box {
         padding: 84px 60px;
         text-align: center;
         position: relative;
@@ -31,27 +31,25 @@
             pointer-events: none;
             transform: translateX(-50%);
         }
+    }
 
-        h2 {
-            font-size: clamp(1.9rem, 3.5vw, 2.85rem);
-            font-weight: 800;
-            letter-spacing: -0.025em;
-            margin-bottom: 16px;
-        }
+    &__title {
+        font-size: clamp(1.9rem, 3.5vw, 2.85rem);
+        font-weight: 800;
+        letter-spacing: -0.025em;
+        margin-bottom: 16px;
+    }
+    &__text {
+        font-size: 1.02rem;
+        color: $t2;
+        max-width: 480px;
+        line-height: 1.75;
+        margin: 0 auto 40px;
+    }
 
-        p {
-            font-size: 1.02rem;
-            color: $t2;
-            max-width: 480px;
-            line-height: 1.75;
-            margin: 0 auto 40px;
-        }
-
-        .cta-btns {
-            @include flex-center;
-            gap: 14px;
-            flex-wrap: wrap;
-        }
+    &__actions {
+        @include flex-center;
+        gap: 14px;
+        flex-wrap: wrap;
     }
 }
-

@@ -45,39 +45,39 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="container">
-        <div className="footer-cols">
-          <div>
-            <a href="/" className="logo" aria-label="Rhine Media home">
-              <p className="logo-mark">RM</p>
-              <p className="logo-name">
+        <div className="footer__cols">
+          <div className="footer__brand">
+            <a href="/" className="footer__logo" aria-label="Rhine Media home">
+              <p className="footer__logo-mark">RM</p>
+              <p className="footer__logo-name">
                 Rhine <span>Media</span>
               </p>
             </a>
 
-            <p className="fb-desc">
+            <p className="footer__description">
               Premium performance media buying for the world's most ambitious advertisers and affiliate partners.
               Built for scale. Optimised for ROI.
             </p>
 
-            <div className="footer-social">
-              <a href="#" className="soc-btn" aria-label="Telegram">
+            <div className="footer__social">
+              <a href="#" className="footer__social-link" aria-label="Telegram">
                 ✈
               </a>
-              <a href="#" className="soc-btn" aria-label="LinkedIn">
+              <a href="#" className="footer__social-link" aria-label="LinkedIn">
                 in
               </a>
-              <a href="#" className="soc-btn" aria-label="Twitter / X">
+              <a href="#" className="footer__social-link" aria-label="Twitter / X">
                 𝕏
               </a>
-              <a href="#" className="soc-btn" aria-label="Skype">
+              <a href="#" className="footer__social-link" aria-label="Skype">
                 ☁
               </a>
             </div>
           </div>
 
-          <div>
-            <h3 className="fc-head">Verticals</h3>
-            <ul className="fc-links">
+          <div className="footer__col">
+            <h3 className="footer__heading">Verticals</h3>
+            <ul className="footer__links">
               {verticalLinks.map((link) => (
                 <li key={link}>
                   <a href="#verticals">{link}</a>
@@ -86,9 +86,9 @@ function Footer() {
             </ul>
           </div>
 
-          <div>
-            <h3 className="fc-head">Traffic Sources</h3>
-            <ul className="fc-links">
+          <div className="footer__col">
+            <h3 className="footer__heading">Traffic Sources</h3>
+            <ul className="footer__links">
               {trafficLinks.map((link) => (
                 <li key={link}>
                   <a href="#traffic">{link}</a>
@@ -97,9 +97,9 @@ function Footer() {
             </ul>
           </div>
 
-          <div>
-            <h3 className="fc-head">Company</h3>
-            <ul className="fc-links">
+          <div className="footer__col">
+            <h3 className="footer__heading">Company</h3>
+            <ul className="footer__links">
               {companyLinks.map((link) => (
                 <li key={link.label}>
                   <a href={link.href}>{link.label}</a>
@@ -109,13 +109,13 @@ function Footer() {
           </div>
         </div>
 
-        <div className="footer-bottom">
-          <p className="copy">
+        <div className="footer__bottom">
+          <p className="footer__copy">
             © 2026 Rhine Media. All rights reserved.{' '}
-            <span className="footer-domain">rhine-media.com</span>
+            <span className="footer__domain">rhine-media.com</span>
           </p>
 
-          <nav className="f-legal" aria-label="Legal">
+          <nav className="footer__legal" aria-label="Legal">
             <a href="#">Terms</a>
             <a href="#">Privacy</a>
             <a href="#contacts">Contact</a>

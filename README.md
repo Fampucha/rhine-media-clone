@@ -20,11 +20,20 @@ The project is available here: [Rhine Media Clone](https://fampucha.github.io/rh
 
 * Responsive layout for desktop, tablet, and mobile screens
 * Component-based project structure
+* BEM-inspired class naming for component styles
 * SCSS variables and mixins for reusable styles
 * Mobile navigation menu
 * Smooth reveal animations on scroll
 * Partner marquee section
 * Optimized production build with Vite
+
+## Performance & Accessibility
+
+* Optimized Google Fonts loading by including only the font weights used in the project.
+* Reveal animations use `IntersectionObserver` and stop observing elements after they become visible.
+* Motion-heavy effects respect `prefers-reduced-motion`.
+* Hero parallax is limited to the hero section and uses `requestAnimationFrame`.
+* Static content is split into reusable React components with scoped SCSS files.
 
 ## Project Structure
 

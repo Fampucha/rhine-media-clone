@@ -65,12 +65,12 @@ function Channels() {
           </p>
         </div>
 
-        <div className="src-grid">
+        <div className="traffic__grid">
           {channels.map((channel) => (
-            <article className="src-card" data-a="scale" data-d={channel.delay} key={channel.title}>
-              <div className="src-ico">{channel.icon}</div>
-              <h3 className="src-name">{channel.title}</h3>
-              <p className="src-sub">{channel.text}</p>
+            <article className="traffic__card" data-a="scale" data-d={channel.delay} key={channel.title}>
+              <div className="traffic__icon">{channel.icon}</div>
+              <h3 className="traffic__title">{channel.title}</h3>
+              <p className="traffic__text">{channel.text}</p>
             </article>
           ))}
         </div>

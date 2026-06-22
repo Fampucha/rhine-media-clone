@@ -48,10 +48,11 @@ const featureCards = [
 
 function WhyChooseUs() {
   return (
-    <section className="section features" id="why-us">
+    <>
+    <section className="section why-choose" id="why-us">
       <div className="container">
-        <div className="feat-layout">
-          <div className="feat-content">
+        <div className="why-choose__layout">
+          <div className="why-choose__content">
             <p className="eyebrow" data-a="left">
               Why Choose Rhine Media
             </p>
@@ -67,12 +68,11 @@ function WhyChooseUs() {
               real accountability and transparent reporting on every dollar spent.
             </p>
 
-            <div className="check-list">
+            <div className="why-choose__check-list">
               {checklist.map((item) => (
-                <article className="check-item" data-a="left" data-d={item.delay} key={item.title}>
-                  <div className="chk">✓</div>
-
-                  <div className="chk-body">
+                <article className="why-choose__check-item" data-a="left" data-d={item.delay} key={item.title}>
+                  <div className="why-choose__check-icon">✓</div>
+                  <div className="why-choose__check-body">
                     <h3>{item.title}</h3>
                     <p>{item.text}</p>
                   </div>
@@ -81,18 +81,19 @@ function WhyChooseUs() {
             </div>
           </div>
 
-          <div className="feat-cards" data-a="right" data-d="2">
+          <div className="why-choose__cards" data-a="right" data-d="2">
             {featureCards.map((card) => (
-              <article className="fc" key={card.title}>
-                <div className="fc-ico">{card.icon}</div>
-                <h3 className="fc-title">{card.title}</h3>
-                <p className="fc-body">{card.text}</p>
+              <article className="why-choose__card" key={card.title}>
+                <div className="why-choose__card-icon">{card.icon}</div>
+                <h3 className="why-choose__card-title">{card.title}</h3>
+                <p className="why-choose__card-text">{card.text}</p>
               </article>
             ))}
           </div>
         </div>
       </div>
     </section>
+    </>
   );
 }
 

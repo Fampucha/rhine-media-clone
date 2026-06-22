@@ -10,7 +10,7 @@
     padding-bottom: 60px;
     overflow: hidden;
 
-    .hero-grid {
+    &__grid {
         position: absolute;
         background-image:
             linear-gradient(rgba(62,114,236,0.035) 1px, transparent 1px),
@@ -20,14 +20,14 @@
         pointer-events: none;
     }
 
-    .orb {
+    &__orb {
         position: absolute;
         border-radius: 50%;
         filter: blur(90px);
         pointer-events: none;
         will-change: transform;
 
-        &-a {
+        &_a {
             width: 680px; 
             height: 680px;
             background: radial-gradient(circle, rgba(30,65,170,0.22) 0%, transparent 68%);
@@ -35,7 +35,7 @@
             right: -160px;
         }
 
-        &-b {
+        &_b {
             width: 420px; 
             height: 420px;
             background: radial-gradient(circle, rgba(201,151,59,0.10) 0%, transparent 70%);
@@ -43,7 +43,7 @@
             left: 5%;
         }
 
-        &-c {
+        &_c {
             width: 280px; 
             height: 280px;
             background: radial-gradient(circle, rgba(62,114,236,0.12) 0%, transparent 70%);
@@ -52,7 +52,7 @@
         }
     }
 
-    .hero-deco {
+    &__deco {
         position: absolute;
         right: 0; 
         top: 0; 
@@ -72,121 +72,129 @@
         }
     }
 
-    .hero-container {
+    &__container {
         position:relative; 
         z-index:2;
     }
 
-    .hero-content {
+    &__content {
         max-width: 780px;
+    }
 
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            background: $gold-dim;
-            color: $gold;
-            padding: 7px 16px;
-            gap: 9px;
-            border: 1px solid $border-g;
-            border-radius: 50px;
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            margin-bottom: 30px;
+    &__badge {
+        display: inline-flex;
+        align-items: center;
+        background: $gold-dim;
+        color: $gold;
+        padding: 7px 16px;
+        gap: 9px;
+        border: 1px solid $border-g;
+        border-radius: 50px;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-bottom: 30px;
+    }
 
-            .badge-pulse {
-                width: 7px; 
-                height: 7px;
-                background: $gold;
-                border-radius: 50%;
-                animation: bpulse 2.2s ease-in-out infinite;
-            }
+    &__badge-pulse {
+        width: 7px; 
+        height: 7px;
+        background: $gold;
+        border-radius: 50%;
+        animation: bpulse 2.2s ease-in-out infinite;
+    }
 
-            @keyframes bpulse {
-                0%, 100% { 
-                    opacity: 1; 
-                    transform: scale(1); 
-                }
-                50%       { 
-                    opacity: 0.45; 
-                    transform: scale(0.75); 
-                }
-            }
-        }
+    &__title {
+        font-size: clamp(2.7rem, 5.5vw, 5rem);
+        font-weight: 800;
+        letter-spacing: -0.032em;
+        line-height: 1.08;
+        margin-bottom: 26px;
+    }
 
-        .hero-h1 {
-            font-size: clamp(2.7rem, 5.5vw, 5rem);
-            font-weight: 800;
-            letter-spacing: -0.032em;
-            line-height: 1.08;
-            margin-bottom: 26px;
-
-            .separator {
-                @media (max-width: 444px) {
-                    display: none;
-                }
-
-            }
-
-            .hl {
-                @include gradient-text(linear-gradient(120deg, #C9973B 0%, #ECC86A 45%, #C9973B 100%));
-            }
-        }
-
-        .hero-sub {
-            font-size: clamp(1rem, 1.8vw, 1.15rem);
-            color: $t2;
-            line-height: 1.75;
-            max-width: 580px;
-            margin-bottom: 42px;
-
-            strong { 
-                color: $t1; 
-                font-weight: 500; 
-            }
-        }
-
-        .hero-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 56px;
-        }
-
-        .hero-kpis {
-            display: flex;
-            flex-wrap: wrap;
-            border-top: 1px solid $b0;
-            gap: 36px;
-            padding-top: 36px;
-
-            @media (max-width: $mobile) {
-                gap: 22px;
-            }
-
-            .kpi {
-                display: flex;
-                flex-direction: column;
-                gap: 3px;
-
-                &-v {
-                    font-family: $f-head;
-                    font-size: 1.75rem;
-                    font-weight: 800;
-                    letter-spacing: -0.03em;
-                    @include gradient-text;
-                    line-height: 1;
-                }
-
-                &-l {
-                    font-size: 0.78rem;
-                    color: $t3;
-                    font-weight: 500;
-                }
-            }
+    &__separator {
+        @media (max-width: 444px) {
+            display: none;
         }
     }
 
-    
+    &__highlight {
+        @include gradient-text(linear-gradient(120deg, #C9973B 0%, #ECC86A 45%, #C9973B 100%));
+    }
+
+    &__subtitle {
+        font-size: clamp(1rem, 1.8vw, 1.15rem);
+        color: $t2;
+        line-height: 1.75;
+        max-width: 580px;
+        margin-bottom: 42px;
+
+        strong { 
+            color: $t1; 
+            font-weight: 500; 
+        }
+    }
+
+    &__actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 56px;
+    }
+
+    &__kpis {
+        display: flex;
+        flex-wrap: wrap;
+        border-top: 1px solid $b0;
+        gap: 36px;
+        padding-top: 36px;
+
+        @media (max-width: $mobile) {
+            gap: 22px;
+        }
+    }
+
+    &__kpi {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+
+        &-value {
+            font-family: $f-head;
+            font-size: 1.75rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            @include gradient-text;
+            line-height: 1;
+        }
+
+        &-label {
+            font-size: 0.78rem;
+            color: $t3;
+            font-weight: 500;
+        }
+    }
+}
+
+@keyframes bpulse {
+    0%, 100% { 
+        opacity: 1; 
+        transform: scale(1); 
+    }
+    50% { 
+        opacity: 0.45; 
+        transform: scale(0.75); 
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero__orb {
+        transform: none;
+        will-change: auto;
+    }
+
+    .hero__badge-pulse {
+        animation: none;
+    }
 }

@@ -88,7 +88,7 @@ h1, h2, h3, h4, h5 {
     display: block;
     background: $g-gold;
     border-radius: 2px;
-    // flex-shrink: 0;
+    flex-shrink: 0;
   }
 }
 
@@ -225,4 +225,16 @@ h1, h2, h3, h4, h5 {
 
 [data-d='5'] {
   transition-delay: 0.4s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  [data-a] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }

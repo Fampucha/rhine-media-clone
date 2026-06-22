@@ -11,14 +11,21 @@ import CTA from './components/CTA/CTA';
 import Footer from './components/Footer/Footer';
 
 function App() {
-   useEffect(() => {
+  useEffect(() => {
     const revealEls = document.querySelectorAll('[data-a]');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReducedMotion) {
+      revealEls.forEach((el) => el.classList.add('vis'));
+      return undefined;
+    }
 
     const revealObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('vis');
+            revealObserver.unobserve(entry.target);
           }
         });
       },

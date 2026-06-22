@@ -75,18 +75,18 @@ function Verticals() {
           </p>
         </div>
 
-        <div className="v-grid">
+        <div className="verticals__grid">
           {verticals.map((vertical) => (
             <article
-              className="v-card"
+              className="verticals__card"
               data-a="up"
               data-d={vertical.delay}
               key={vertical.title}
             >
-              <span className="v-emoji">{vertical.icon}</span>
-              <h3 className="v-name">{vertical.title}</h3>
-              <p className="v-desc">{vertical.text}</p>
-              <span className="v-pill">{vertical.label}</span>
+              <span className="verticals__icon">{vertical.icon}</span>
+              <h3 className="verticals__title">{vertical.title}</h3>
+              <p className="verticals__description">{vertical.text}</p>
+              <span className="verticals__pill">{vertical.label}</span>
             </article>
           ))}
         </div>

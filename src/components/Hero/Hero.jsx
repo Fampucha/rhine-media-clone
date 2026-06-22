@@ -3,36 +3,76 @@ import './Hero.scss';
 
 function Hero() {
   useEffect(() => {
-    const orbA = document.querySelector('.orb-a');
-    const orbB = document.querySelector('.orb-b');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const hero = document.querySelector('.hero');
+    const orbA = document.querySelector('.hero__orb_a');
+    const orbB = document.querySelector('.hero__orb_b');
+    let heroHeight = hero?.offsetHeight ?? 0;
+    let animationFrameId = null;
 
-    const handleScroll = () => {
+    if (prefersReducedMotion) {
+      return undefined;
+    }
+
+    const updateHeroHeight = () => {
+      heroHeight = hero?.offsetHeight ?? 0;
+    };
+
+    const updateParallax = () => {
       const y = window.scrollY;
 
-      if (orbA && y < heroHeight) {
+      if (!heroHeight || y > heroHeight) {
+        animationFrameId = null;
+        return;
+      }
+
+      if (orbA) {
         orbA.style.transform = `translateY(${y * 0.12}px)`;
       }
 
-      if (orbB && y < heroHeight) {
+      if (orbB) {
         orbB.style.transform = `translateY(${y * 0.08}px)`;
       }
+
+      animationFrameId = null;
+    };
+
+    const handleScroll = () => {
+      
+      if (!heroHeight || window.scrollY > heroHeight) {
+        return;
+      }
+
+      if (animationFrameId) {
+        return;
+      }
+
+      animationFrameId = window.requestAnimationFrame(updateParallax);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', updateHeroHeight);
+    updateHeroHeight();
+    updateParallax();
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', updateHeroHeight);
+
+      if (animationFrameId) {
+        window.cancelAnimationFrame(animationFrameId);
+      }
     };
   }, []);
 
   return (
     <section className="hero">
-      <div className="hero-grid"></div>
-      <div className="orb orb-a"></div>
-      <div className="orb orb-b"></div>
-      <div className="orb orb-c"></div>
+      <div className="hero__grid"></div>
+      <div className="hero__orb hero__orb_a"></div>
+      <div className="hero__orb hero__orb_b"></div>
+      <div className="hero__orb hero__orb_c"></div>
 
-      <div className="hero-deco" aria-hidden="true">
+      <div className="hero__deco" aria-hidden="true">
         <svg
           viewBox="0 0 600 800"
           fill="none"
@@ -51,26 +91,26 @@ function Hero() {
         </svg>
       </div>
 
-      <div className="container hero-container">
-        <div className="hero-content">
-          <div className="hero-badge" data-a="up">
-            <span className="badge-pulse"></span>
+      <div className="container hero__container">
+        <div className="hero__content">
+          <div className="hero__badge" data-a="up">
+            <span className="hero__badge-pulse"></span>
             Performance Media Buying Team
           </div>
 
-          <h1 className="hero-h1" data-a="up" data-d="1">
+          <h1 className="hero__title" data-a="up" data-d="1">
             <div>Performance Media</div>
             <span>
-              Buying Team <span className="separator">|&nbsp;</span><span className="hl">Rhine Media</span>
+              Buying Team <span className="hero__separator">|&nbsp;</span><span className="hero__highlight">Rhine Media</span>
             </span>
           </h1>
 
-          <p className="hero-sub" data-a="up" data-d="2">
+          <p className="hero__subtitle" data-a="up" data-d="2">
             We buy traffic for <strong>Dating, Nutra, Gambling, Sweepstakes, iGaming</strong> and more —
             across all major channels, in every major GEO, at premium scale.
           </p>
 
-          <div className="hero-actions" data-a="up" data-d="3">
+          <div className="hero__actions" data-a="up" data-d="3">
             <a href="#contacts" className="btn btn-primary">
               Start Cooperation
               <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true">
@@ -89,22 +129,22 @@ function Hero() {
             </a>
           </div>
 
-          <div className="hero-kpis" data-a="up" data-d="4">
-            <div className="kpi">
-              <span className="kpi-v">$12M+</span>
-              <span className="kpi-l">Monthly Ad Spend</span>
+          <div className="hero__kpis" data-a="up" data-d="4">
+            <div className="hero__kpi">
+              <span className="hero__kpi-value">$12M+</span>
+              <span className="hero__kpi-label">Monthly Ad Spend</span>
             </div>
-            <div className="kpi">
-              <span className="kpi-v">340%</span>
-              <span className="kpi-l">Average Campaign ROI</span>
+            <div className="hero__kpi">
+              <span className="hero__kpi-value">340%</span>
+              <span className="hero__kpi-label">Average Campaign ROI</span>
             </div>
-            <div className="kpi">
-              <span className="kpi-v">8+</span>
-              <span className="kpi-l">Traffic Channels</span>
+            <div className="hero__kpi">
+              <span className="hero__kpi-value">8+</span>
+              <span className="hero__kpi-label">Traffic Channels</span>
             </div>
-            <div className="kpi">
-              <span className="kpi-v">60+</span>
-              <span className="kpi-l">GEOs Worldwide</span>
+            <div className="hero__kpi">
+              <span className="hero__kpi-value">60+</span>
+              <span className="hero__kpi-label">GEOs Worldwide</span>
             </div>
           </div>
         </div>

@@ -29,19 +29,21 @@ const stats = [
 
 function Stats() {
   return (
-    <section className="stats-band" aria-label="Company statistics">
-      <div className="container">
-        <div className="stats-row">
-          {stats.map((item) => (
-            <div className="stat-cell" data-a="up" data-d={item.delay} key={item.label}>
-              <h3 className="stat-num">{item.number}</h3>
-              <p className="stat-lbl">{item.label}</p>
-              <p className="stat-sub">{item.text}</p>
-            </div>
-          ))}
+    <>
+      <section className="stats" aria-label="Company statistics">
+        <div className="container">
+          <div className="stats__row">
+            {stats.map((item) => (
+              <div className="stats__cell" data-a="up" data-d={item.delay} key={item.label}>
+                <h3 className="stats__number">{item.number}</h3>
+                <p className="stats__label">{item.label}</p>
+                <p className="stats__text">{item.text}</p>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
 
